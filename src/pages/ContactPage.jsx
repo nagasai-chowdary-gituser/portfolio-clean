@@ -7,21 +7,49 @@ import SectionHeading from "../components/SectionHeading";
 import ScrollReveal from "../components/ScrollReveal";
 
 /* ═══════════════ CONTACT PAGE ═══════════════ */
+
+// ⚠️ REPLACE THIS with your Web3Forms access key
+// Get your FREE key at: https://web3forms.com (just enter your email)
+const WEB3FORMS_KEY = "fae57298-1dc9-47ab-99bc-032444d602fb";
+
 export default function ContactPage() {
     const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
     const handleChange = (e) => {
         setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const subject = encodeURIComponent(`Portfolio Contact from ${formState.name}`);
-        const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`);
-        window.open(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`);
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 3000);
+        setStatus("sending");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    name: formState.name,
+                    email: formState.email,
+                    message: formState.message,
+                    subject: `Portfolio Contact from ${formState.name}`,
+                }),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                setStatus("success");
+                setFormState({ name: "", email: "", message: "" });
+                setTimeout(() => setStatus("idle"), 4000);
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus("idle"), 4000);
+            }
+        } catch {
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 4000);
+        }
     };
 
     const inputClasses = "w-full px-4 py-3 text-sm rounded-xl bg-dark-800/50 border border-border text-dark-100 placeholder:text-dark-500 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/40 transition-all duration-300";
@@ -86,10 +114,15 @@ export default function ContactPage() {
                                 <motion.button
                                     type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                                     className="btn-neon relative"
+                                    disabled={status === "sending"}
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
-                                        {submitted ? (
+                                        {status === "sending" ? (
+                                            <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</>
+                                        ) : status === "success" ? (
                                             <><Icons.check className="w-4 h-4" /> Message Sent!</>
+                                        ) : status === "error" ? (
+                                            <><Icons.close className="w-4 h-4" /> Failed — Try Again</>
                                         ) : (
                                             <><Icons.send className="w-4 h-4" /> Send Message</>
                                         )}

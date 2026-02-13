@@ -86,37 +86,39 @@ function AnimatedCounter({ value, label, delay = 0 }) {
 function FeaturedProjectCard({ project, index }) {
     return (
         <ScrollReveal delay={index * 0.12}>
-            <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="group relative glass rounded-2xl overflow-hidden card-3d h-full"
-            >
-                <div className="h-1 w-full" style={{
-                    background: `linear-gradient(90deg, ${project.color}, ${project.color}44, transparent)`
-                }} />
-                <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
-                    style={{ background: `radial-gradient(circle at 50% 0%, ${project.color}12, transparent 70%)` }}
-                />
-                <div className="relative p-6">
-                    <span className="absolute top-4 right-4 text-[10px] font-mono text-dark-500 bg-dark-800/50 px-2 py-0.5 rounded-md">
-                        0{project.id}
-                    </span>
-                    <h3 className="text-lg font-bold text-dark-50 group-hover:text-accent transition-colors duration-300 pr-12">
-                        {project.name}
-                    </h3>
-                    <p className="text-sm text-dark-300 mt-2 leading-relaxed line-clamp-2">{project.subtitle}</p>
-                    <div className="flex flex-wrap gap-1.5 mt-4">
-                        {project.stack.slice(0, 4).map((tech) => (
-                            <span key={tech} className="tech-badge text-[11px]">{tech}</span>
-                        ))}
+            <Link to="/projects" className="block h-full">
+                <motion.div
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="group relative glass rounded-2xl overflow-hidden card-3d h-full"
+                >
+                    <div className="h-1 w-full" style={{
+                        background: `linear-gradient(90deg, ${project.color}, ${project.color}44, transparent)`
+                    }} />
+                    <div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                        style={{ background: `radial-gradient(circle at 50% 0%, ${project.color}12, transparent 70%)` }}
+                    />
+                    <div className="relative p-6">
+                        <span className="absolute top-4 right-4 text-[10px] font-mono text-dark-500 bg-dark-800/50 px-2 py-0.5 rounded-md">
+                            0{project.id}
+                        </span>
+                        <h3 className="text-lg font-bold text-dark-50 group-hover:text-accent transition-colors duration-300 pr-12">
+                            {project.name}
+                        </h3>
+                        <p className="text-sm text-dark-300 mt-2 leading-relaxed line-clamp-2">{project.subtitle}</p>
+                        <div className="flex flex-wrap gap-1.5 mt-4">
+                            {project.stack.slice(0, 4).map((tech) => (
+                                <span key={tech} className="tech-badge text-[11px]">{tech}</span>
+                            ))}
+                        </div>
+                        <div className="mt-4 flex items-center gap-2 text-xs font-medium text-dark-400 group-hover:text-accent transition-colors">
+                            <span>View Details</span>
+                            <Icons.arrowDown className="w-3 h-3 -rotate-90 group-hover:translate-x-1 transition-transform" />
+                        </div>
                     </div>
-                    <div className="mt-4 flex items-center gap-2 text-xs font-medium text-dark-400 group-hover:text-accent transition-colors">
-                        <span>View Details</span>
-                        <Icons.arrowDown className="w-3 h-3 -rotate-90 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                </div>
-            </motion.div>
+                </motion.div>
+            </Link>
         </ScrollReveal>
     );
 }
