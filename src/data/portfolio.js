@@ -55,7 +55,7 @@ export const projects = [
         stack: ["React", "FastAPI", "OpenAI", "Supabase", "LangChain", "RAG"],
         results: "Supports 3 interview modes with real-time evaluation, personalized roadmaps, and hiring-grade scoring.",
         github: "https://github.com/nagasai/ai-interviewer",
-        demo: "https://chowdary1-ai-interviewer-version-1.hf.space/login",
+        demo: "https://chowdary1-ai-interviewer-version-2.hf.space/login",
         color: "#4361ee",
     },
     {
