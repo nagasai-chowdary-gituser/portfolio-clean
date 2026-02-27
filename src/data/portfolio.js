@@ -39,10 +39,10 @@ systems, I focus on solving complex problems with elegant, scalable solutions.`,
 
 export const skills = {
     languages: ["Python", "C++", "Java", "SQL", "Javascript", "HTML/CSS"],
-    frameworks: ["React", "Next.js", "FastAPI", "Flask", "Node.js", "Vite"],
-    aiml: ["OpenAI API", "LangChain", "TensorFlow", "PyTorch", "HuggingFace", "RAG Systems"],
+    frameworks: ["React", "Next.js", "FastAPI", "Flask", "Node.js", "Vite", "Streamlit"],
+    aiml: ["OpenAI API", "LangChain", "LangGraph", "TensorFlow", "PyTorch", "HuggingFace", "RAG Systems", "ML/DL", "NLP", "Fine Tuning", "Vector DB", "Agents Building", "MCP Servers", "A2A Systems"],
     backend: ["PostgreSQL", "Supabase", "Redis", "MongoDB", "REST APIs", "GraphQL"],
-    devops: ["Docker", "AWS", "Vercel", "GitHub Actions", "Nginx", "Linux"],
+    devops: ["Docker", "AWS", "Azure", "Vercel", "Render", "GitHub Actions", "Nginx", "Linux", "n8n Automation", "System Design"],
 };
 
 export const projects = [
