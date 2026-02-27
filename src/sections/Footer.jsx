@@ -56,7 +56,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 className="font-semibold gradient-text-static hover:opacity-80 transition-opacity"
                             >
-                                Rudexai
+                                Rudrxai
                             </a>
                         </p>
                     </div>
