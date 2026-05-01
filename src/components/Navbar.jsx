@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Icons } from "./Icons";
 import { personalInfo } from "../data/portfolio";
 import { useTheme } from "../context/ThemeContext";
-import resumePDF from "../data/nagasai's resume.pdf";
+import resumePDF from "../data/Nagasai's_resume.pdf";
 
 const navLinks = [
     { label: "Home", to: "/" },

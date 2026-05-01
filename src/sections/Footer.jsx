@@ -51,7 +51,7 @@ export default function Footer() {
                         <p className="text-xs text-dark-500">
                             Designed and built by{" "}
                             <a
-                                href="https://rudexai.com"
+                                href="https://rudexai.tech"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="font-semibold gradient-text-static hover:opacity-80 transition-opacity"
