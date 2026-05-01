@@ -8,13 +8,15 @@
  * ============================================
  */
 
+import resumePDF from "./Nagasai's_resume.pdf";
+
 export const personalInfo = {
     name: "The Nagasai Chowdary",
     firstName: "Nagasai",
     title: "AI Engineer & Full-Stack Developer",
     tagline: "Building intelligent systems that transform ideas into production-grade solutions.",
     bio: "I'm a founder-level engineer specializing in AI/ML systems, full-stack development, and scalable architecture. I bridge the gap between cutting-edge research and production-ready products — from LLM-powered applications to real-time intelligent platforms.",
-    resumeLink: new URL("./nagasai's resume.pdf", import.meta.url).href, // Auto-resolved resume path
+    resumeLink: resumePDF, // Auto-resolved resume path
     email: "jonnalagaddanagasai6@gmail.com",
     github: "https://github.com/nagasai-chowdary-gituser",
     linkedin: "https://www.linkedin.com/in/jonnalagadda-nagasai-2722a6315/",
