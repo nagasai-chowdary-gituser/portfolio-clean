@@ -214,6 +214,32 @@ export default function HomePage() {
                         {personalInfo.name}
                     </motion.h1>
 
+                    {/* Founder quote — links to the agency site */}
+                    <motion.p variants={itemVariants} className="mt-4 text-base md:text-lg font-medium text-dark-200">
+                        “{personalInfo.company.role},{" "}
+                        <a
+                            href={personalInfo.company.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={personalInfo.company.name}
+                            className="font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors"
+                        >
+                            {personalInfo.company.shortName}
+                        </a>
+                        ”
+                        <span className="block mt-1 text-xs md:text-sm text-dark-400">
+                            {personalInfo.company.shortName} —{" "}
+                            <a
+                                href={personalInfo.company.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-accent transition-colors"
+                            >
+                                {personalInfo.company.name} · {personalInfo.company.url.replace(/^https?:\/\//, "")} ↗
+                            </a>
+                        </span>
+                    </motion.p>
+
                     {/* Typing role — accent colored */}
                     <motion.div variants={itemVariants} className="mt-4 h-8 flex items-center justify-center">
                         <span className="text-lg md:text-xl font-semibold hero-subtitle">
