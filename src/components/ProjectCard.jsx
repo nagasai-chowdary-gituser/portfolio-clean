@@ -27,6 +27,18 @@ export default function ProjectCard({ project, index }) {
                     style={{ background: `linear-gradient(90deg, ${project.color}, ${project.color}44, transparent)` }}
                 />
 
+                {/* Interface screenshot */}
+                {project.image && (
+                    <div className="relative aspect-video overflow-hidden border-b border-border bg-dark-900">
+                        <img
+                            src={project.image}
+                            alt={`${project.name} interface`}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                    </div>
+                )}
+
                 <div className="relative p-6 md:p-8">
                     {/* Header */}
                     <div className="flex items-start justify-between gap-4 mb-5">

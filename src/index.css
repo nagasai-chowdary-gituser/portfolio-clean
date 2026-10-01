@@ -322,13 +322,16 @@ body {
 }
 
 /* ===== SECTION SPACING ===== */
-.section-padding {
-  padding: 3rem 0;
-}
-
-@media (min-width: 768px) {
+/* Layered so Tailwind utilities like pt-2 / pb-0 can override it */
+@layer components {
   .section-padding {
-    padding: 4.5rem 0;
+    padding: 3rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 4.5rem 0;
+    }
   }
 }
 

@@ -9,6 +9,8 @@
  */
 
 import resumePDF from "./Nagasai's_resume.pdf";
+import madImage from "../assets/projects/mad.png";
+import jarvisImage from "../assets/projects/jarvis.png";
 
 export const personalInfo = {
     name: "The Nagasai Chowdary",
@@ -34,7 +36,7 @@ systems, I focus on solving complex problems with elegant, scalable solutions.`,
     highlights: [
         { label: "Projects Shipped", value: "10+" },
         { label: "AI Models Deployed", value: "5+" },
-        { label: "Lines of Production Code", value: "50K+" },
+        { label: "Lines of Production Code", value: "5K+" },
         { label: "Systems Architected", value: "8+" },
     ],
 };
@@ -95,6 +97,32 @@ export const projects = [
         github: "https://github.com/Naveenkumar-2007/-GenAI-Intelligence-Studio",
         demo: "https://naveenkumar-2007--genai-intelligence-studi-streamlit-app-qreybr.streamlit.app/",
         color: "#f72585",
+    },
+    {
+        id: 5,
+        name: "MAD — Multi-Agent Debate",
+        subtitle: "Desktop app where OpenAI, Gemini & Groq agents debate a question, search Google, and agree on one answer",
+        problem: "A single LLM answers confidently even when it is wrong, and there is no second opinion or source check built into the answer.",
+        solution: "Three agents answer independently, then take turns judging each other, fixing their own answers and voting on consensus. Any agent can call a google_search tool that runs visibly in an embedded Chromium panel, with Bing/Wikipedia fallback when Google blocks the request.",
+        stack: ["Python", "OpenAI", "Gemini", "Groq", "Chromium", "SQLite", "SQLAlchemy", "Pytest"],
+        results: "Ends in a verdict card with key takeaways, a confidence score, consensus status and clickable sources. Agents without an API key are skipped automatically.",
+        github: "https://github.com/nagasai-chowdary-gituser/MAD-Multi-Agent-Debet",
+        demo: "",
+        image: madImage,
+        color: "#3b82f6",
+    },
+    {
+        id: 6,
+        name: "The Jarvis — Ultron Powered",
+        subtitle: "Autonomous personal agent with real control of a Windows PC, reachable from a desk HUD, a phone call and Telegram",
+        problem: "Assistants that only talk can't act, and an agent that can act can delete files, report work it never checked, or burn money in a loop.",
+        solution: "One shared brain behind three transports: desk HUD, Twilio phone calls and a Telegram bot. Every tool call goes through gate → preflight → run → verify. Deletes go to the recycle bin, cheap models are tried before expensive ones, and a spend cap stops runaway loops.",
+        stack: ["Python", "OpenAI Realtime", "FastAPI", "WebSockets", "Twilio", "Playwright", "Pygame", "SQLite"],
+        results: "~15,400 lines across 30 modules with 822 passing tests, plus on-machine self-tests (15/15 system, 20/20 browser).",
+        github: "https://github.com/nagasai-chowdary-gituser/The-Jarvis-Ultron-Powered",
+        demo: "",
+        image: jarvisImage,
+        color: "#2dd4bf",
     },
 ];
 
