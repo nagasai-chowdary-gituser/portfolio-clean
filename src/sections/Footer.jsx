@@ -51,12 +51,13 @@ export default function Footer() {
                         <p className="text-xs text-dark-500">
                             Designed and built by{" "}
                             <a
-                                href="https://rudexai.tech"
+                                href={personalInfo.company.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                title={personalInfo.company.name}
                                 className="font-semibold gradient-text-static hover:opacity-80 transition-opacity"
                             >
-                                Rudrxai
+                                {personalInfo.company.url.replace(/^https?:\/\//, "")}
                             </a>
                         </p>
                     </div>
