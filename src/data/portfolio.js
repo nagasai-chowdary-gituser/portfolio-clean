@@ -48,6 +48,14 @@ export const experience = [
         description: "Leading strategy, delivery, and the development of technology solutions at RLCS.",
         url: "https://rudrovalabs.tech",
     },
+    {
+        role: "AI Engineer Researcher",
+        company: "LLM Prompt Research",
+        companyName: "Research on Prompt Framing Effects",
+        description: "Conducted an empirical study of emotional and authoritative prompt framing across 100 prompts and 300 LLM responses. The research shows commanding prompts can significantly improve response completeness.",
+        url: researchPaperFile,
+        actionLabel: "View Research Paper",
+    },
 ];
 
 export const researchPaper = {

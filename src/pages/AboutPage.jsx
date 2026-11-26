@@ -147,6 +147,17 @@ export default function AboutPage() {
                                         </div>
                                     </div>
                                     <p className="mt-4 text-sm text-dark-300 leading-relaxed">{item.description}</p>
+                                    {item.actionLabel && (
+                                        <a
+                                            href={item.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-neon-blue transition-colors"
+                                        >
+                                            {item.actionLabel}
+                                            <Icons.externalLink className="w-4 h-4" />
+                                        </a>
+                                    )}
                                 </div>
                             </ScrollReveal>
                         ))}
