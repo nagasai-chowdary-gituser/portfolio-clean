@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Icons } from "./Icons";
 import { personalInfo } from "../data/portfolio";
 import { useTheme } from "../context/ThemeContext";
-import resumePDF from "../data/Nagasai's_resume.pdf";
+import resumePDF from "../data/Nagasai_Resume_uptodate.pdf";
 
 const navLinks = [
     { label: "Home", to: "/" },
@@ -145,7 +145,7 @@ export default function Navbar() {
                                         <div className="h-px bg-border" />
                                         <a
                                             href={resumePDF}
-                                            download="Nagasai_Resume.pdf"
+                                            download="Nagasai_Resume_uptodate.pdf"
                                             className="flex items-center gap-2.5 px-4 py-3 text-sm text-dark-200 hover:text-accent hover:bg-accent-dim transition-all duration-200"
                                             onClick={() => setResumeOpen(false)}
                                         >
@@ -249,7 +249,7 @@ export default function Navbar() {
                                     </a>
                                     <a
                                         href={resumePDF}
-                                        download="Nagasai_Resume.pdf"
+                                        download="Nagasai_Resume_uptodate.pdf"
                                         className="flex items-center gap-2.5 px-4 py-3 text-base font-medium rounded-xl text-dark-200 hover:text-accent hover:bg-accent-dim transition-all"
                                     >
                                         <Icons.download className="w-4 h-4" />

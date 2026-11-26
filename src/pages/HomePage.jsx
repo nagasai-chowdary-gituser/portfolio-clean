@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import { personalInfo, projects, capabilities, aboutText } from "../data/portfolio";
+import { personalInfo, projects, capabilities, aboutText, researchPaper } from "../data/portfolio";
 import { Icons } from "../components/Icons";
 import ScrollReveal from "../components/ScrollReveal";
 import profilePhoto from "../data/my profile.jpeg";
@@ -153,7 +153,61 @@ function CapabilityMini({ capability, index }) {
 }
 
 /* ═══════════════ HOME PAGE ═══════════════ */
+function ResearchHighlight() {
+    return (
+        <section className="section-padding relative">
+            <div className="max-w-6xl mx-auto px-6">
+                <ScrollReveal>
+                    <div className="relative overflow-hidden glass rounded-3xl p-7 md:p-10 lg:p-12">
+                        <div className="absolute -top-24 -right-20 w-72 h-72 rounded-full bg-neon-purple/10 blur-[90px]" aria-hidden="true" />
+                        <div className="absolute -bottom-28 -left-20 w-72 h-72 rounded-full bg-neon-cyan/10 blur-[90px]" aria-hidden="true" />
+                        <div className="relative grid lg:grid-cols-[1.35fr_0.65fr] gap-10 lg:gap-14 items-center">
+                            <div>
+                                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                                    <span className="w-7 h-px bg-accent" />
+                                    {researchPaper.label}
+                                </div>
+                                <h2 className="mt-4 text-2xl md:text-4xl font-bold text-dark-50 leading-tight max-w-3xl">
+                                    {researchPaper.title}
+                                </h2>
+                                <p className="mt-3 text-base md:text-lg text-accent font-medium">{researchPaper.subtitle}</p>
+                                <p className="mt-5 text-sm md:text-base text-dark-300 leading-relaxed max-w-3xl">
+                                    {researchPaper.description}
+                                </p>
+                                <div className="mt-6 rounded-xl border border-accent/15 bg-accent-dim px-4 py-3.5 text-sm text-dark-200 leading-relaxed">
+                                    <span className="font-semibold text-accent">Key finding: </span>{researchPaper.finding}
+                                </div>
+                                <div className="mt-7 flex flex-wrap items-center gap-3">
+                                    <a href={researchPaper.file} target="_blank" rel="noopener noreferrer" className="btn-neon">
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            <Icons.fileText className="w-4 h-4" />
+                                            Read Research Paper
+                                        </span>
+                                    </a>
+                                    <a href={researchPaper.file} download={researchPaper.fileName} className="btn-outline">
+                                        <Icons.download className="w-4 h-4" />
+                                            Download PDF
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
+                                {researchPaper.metrics.map((metric) => (
+                                    <div key={metric.label} className="rounded-2xl border border-white/8 bg-dark-900/35 p-4 sm:p-5 lg:p-6">
+                                        <p className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text-static whitespace-nowrap">{metric.value}</p>
+                                        <p className="mt-1.5 text-[10px] sm:text-xs font-medium uppercase tracking-wider text-dark-400 leading-tight">{metric.label}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </ScrollReveal>
+            </div>
+        </section>
+    );
+}
+
 export default function HomePage() {
+    const [documentView, setDocumentView] = useState("research");
     const typingText = useTypingEffect([
         "AI Engineer",
         "Full-Stack Developer",
@@ -174,7 +228,7 @@ export default function HomePage() {
     return (
         <>
             {/* ── HERO ── */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
                 {/* Ambient glow orbs */}
                 <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                     <div className="absolute top-[10%] left-[15%] w-125 h-125 rounded-full bg-neon-cyan/6 blur-[120px] animate-pulse-soft" />
@@ -187,11 +241,21 @@ export default function HomePage() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="relative z-10 max-w-4xl mx-auto px-6 text-center py-20"
+                    className="relative z-10 grid w-full max-w-[88rem] mx-auto grid-cols-1 items-center gap-12 px-6 py-24 lg:grid-cols-[0.78fr_1.02fr_1.08fr] lg:gap-12 lg:py-16"
                 >
+                    <motion.div variants={itemVariants} className="hidden lg:flex justify-center">
+                        <div className="relative w-60 h-[19rem] xl:w-68 xl:h-[22rem] rounded-3xl border border-accent/35 bg-accent-dim p-1.5 shadow-[0_18px_55px_rgba(0,0,0,0.35)]">
+                            <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-neon-cyan/25 via-transparent to-neon-blue/20" aria-hidden="true" />
+                            <div className="relative h-full overflow-hidden rounded-[1.35rem] border border-white/10">
+                                <img src={profilePhoto} alt={personalInfo.name} className="w-full h-full object-cover object-center" />
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <div className="text-center lg:text-left lg:col-start-2">
                     {/* Status badge */}
                     <motion.div variants={itemVariants}>
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium glass border border-neon-cyan/20 text-neon-cyan">
+                        <span className="inline-flex w-[20rem] items-center justify-center gap-2 rounded-full border border-accent/25 bg-accent-dim px-4 py-2 text-xs font-semibold text-neon-cyan shadow-lg">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75" />
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-cyan" />
@@ -201,9 +265,9 @@ export default function HomePage() {
                     </motion.div>
 
                     {/* Photo with spinning conic-gradient ring */}
-                    <motion.div variants={itemVariants} className="mt-8 flex justify-center">
+                    <motion.div variants={itemVariants} className="mt-8 flex justify-center lg:hidden">
                         <div className="photo-ring">
-                            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden z-10">
+                            <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden z-10">
                                 <img src={profilePhoto} alt={personalInfo.name} className="w-full h-full object-cover" />
                             </div>
                         </div>
@@ -214,34 +278,28 @@ export default function HomePage() {
                         {personalInfo.name}
                     </motion.h1>
 
-                    {/* Founder quote — links to the agency site */}
-                    <motion.p variants={itemVariants} className="mt-4 text-base md:text-lg font-medium text-dark-200">
-                        “{personalInfo.company.role},{" "}
-                        <a
-                            href={personalInfo.company.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title={personalInfo.company.name}
-                            className="font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors"
-                        >
-                            {personalInfo.company.shortName}
-                        </a>
-                        ”
-                        <span className="block mt-1 text-xs md:text-sm text-dark-400">
-                            {personalInfo.company.shortName} —{" "}
-                            <a
-                                href={personalInfo.company.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:text-accent transition-colors"
-                            >
-                                {personalInfo.company.name} · {personalInfo.company.url.replace(/^https?:\/\//, "")} ↗
-                            </a>
+                    {/* Primary role */}
+                    <motion.div variants={itemVariants} className="mt-4 flex justify-center">
+                        <span className="rounded-md bg-accent px-3 py-1 text-xl font-extrabold tracking-tight text-dark-950 shadow-[0_4px_16px_rgba(109,191,184,0.28)] md:text-2xl">
+                            {personalInfo.title}
                         </span>
-                    </motion.p>
+                    </motion.div>
 
-                    {/* Typing role — accent colored */}
-                    <motion.div variants={itemVariants} className="mt-4 h-8 flex items-center justify-center">
+                    {/* Current leadership experience — visible in the hero */}
+                    <motion.a
+                        variants={itemVariants}
+                        href={personalInfo.company.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={personalInfo.company.name}
+                        className="hidden"
+                    >
+                        <span className="h-2 w-2 rounded-full bg-accent" />
+                        {personalInfo.company.role} <span className="text-dark-400">—</span> {personalInfo.company.shortName}
+                    </motion.a>
+
+                    {/* Supporting specialties */}
+                    <motion.div variants={itemVariants} className="mt-4 h-8 flex items-center justify-center lg:justify-start">
                         <span className="text-lg md:text-xl font-semibold hero-subtitle">
                             {typingText}
                         </span>
@@ -249,12 +307,12 @@ export default function HomePage() {
                     </motion.div>
 
                     {/* Tagline */}
-                    <motion.p variants={itemVariants} className="mt-3 text-sm md:text-base text-dark-300 max-w-lg mx-auto leading-relaxed">
+                    <motion.p variants={itemVariants} className="mt-3 text-sm md:text-base text-dark-300 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                         {personalInfo.tagline}
                     </motion.p>
 
                     {/* CTAs */}
-                    <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
                         <Link to="/projects" className="btn-neon">
                             <span className="relative z-10 flex items-center gap-2">
                                 View My Work
@@ -267,7 +325,7 @@ export default function HomePage() {
                     </motion.div>
 
                     {/* Social Links */}
-                    <motion.div variants={itemVariants} className="mt-6 flex items-center justify-center gap-3">
+                    <motion.div variants={itemVariants} className="mt-6 flex items-center justify-center lg:justify-start gap-3">
                         {[
                             { href: personalInfo.github, icon: Icons.github, label: "GitHub" },
                             { href: personalInfo.linkedin, icon: Icons.linkedin, label: "LinkedIn" },
@@ -283,6 +341,55 @@ export default function HomePage() {
                             </a>
                         ))}
                     </motion.div>
+                    </div>
+
+                    <motion.div
+                        variants={itemVariants}
+                        className="relative mx-auto w-full max-w-xl text-left lg:max-w-none lg:mt-4"
+                    >
+                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent-dim px-4 py-2 text-xs font-semibold text-dark-100 shadow-lg">
+                            <span className="h-2 w-2 rounded-full bg-accent" />
+                            LLM Research · Prompt Engineering
+                        </div>
+                        <div className="relative mt-3">
+                        <div className="absolute inset-x-7 top-5 h-full rounded-sm bg-white/55 rotate-3 shadow-2xl" />
+                        <div className="absolute inset-x-4 top-2 h-full rounded-sm bg-slate-100/80 -rotate-2 shadow-xl" />
+                        <article className="relative min-h-[400px] overflow-hidden rounded-sm bg-[#f8fafc] p-6 pb-20 text-slate-800 shadow-2xl sm:p-8 sm:pb-20 lg:h-[35rem] lg:min-h-0 lg:p-7 lg:pb-20">
+                            <div className="flex items-center justify-between border-b border-slate-200 pb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                                <span>{documentView === "research" ? "AI Engineer Research" : "Professional Profile"}</span>
+                                <span>{documentView === "research" ? "2026" : "Résumé"}</span>
+                            </div>
+                            {documentView === "research" ? (
+                                <>
+                                    <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-[#2f8e85]">Featured Research</p>
+                                    <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-900 sm:text-[1.55rem]">
+                                        Do <span className="mx-0.5 rounded-sm bg-[#2f8e85] px-1.5 py-0.5 text-white shadow-sm">Emotional</span> and Authoritative Prompts Influence Large Language Model Performance?
+                                    </h2>
+                                    <p className="mt-4 text-sm font-medium leading-relaxed text-slate-600">{researchPaper.subtitle}</p>
+                                    <p className="mt-3 text-xs leading-relaxed text-slate-500">Alongside building LLM-powered products, I conduct empirical AI research to understand how prompt design affects real-world model performance.</p>
+                                    <div className="mt-5 border-l-2 border-[#2f8e85] pl-4 text-sm leading-relaxed text-slate-700"><span className="font-bold text-slate-900">Key finding: </span>{researchPaper.finding}</div>
+                                    <div className="mt-6 grid grid-cols-3 gap-2 border-t border-slate-200 pt-4">
+                                        {researchPaper.metrics.map((metric) => <div key={metric.label}><p className="text-lg font-extrabold text-[#2f8e85]">{metric.value}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-slate-500">{metric.label}</p></div>)}
+                                    </div>
+                                    <a href={researchPaper.file} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#2f8e85] hover:text-slate-900">Read full paper <Icons.externalLink className="w-3.5 h-3.5" /></a>
+                                </>
+                            ) : (
+                                <>
+                                    <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-[#2f8e85]">Résumé</p>
+                                    <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">{personalInfo.name}</h2>
+                                    <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-600">AI Engineer · Managing Director, RLCS</p>
+                                    <div className="mt-7 border-l-2 border-[#2f8e85] pl-4 text-sm leading-relaxed text-slate-700"><span className="font-bold text-slate-900">Focus: </span>Production AI systems, LLM-powered products, and scalable full-stack engineering.</div>
+                                    <div className="mt-8 grid grid-cols-3 gap-2 border-t border-slate-200 pt-5">{["AI / ML", "LLM Apps", "Full Stack"].map((focus, index) => <div key={focus}><p className="text-lg font-extrabold text-[#2f8e85]">0{index + 1}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-slate-500">{focus}</p></div>)}</div>
+                                    <a href={personalInfo.resumeLink} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#2f8e85] hover:text-slate-900">View full résumé <Icons.externalLink className="w-3.5 h-3.5" /></a>
+                                </>
+                            )}
+                            <div className="absolute inset-x-7 bottom-4 flex items-center justify-between border-t border-slate-200 pt-3">
+                                <button type="button" onClick={() => setDocumentView("research")} disabled={documentView === "research"} className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 transition-colors enabled:hover:text-[#2f8e85] disabled:opacity-30"><Icons.arrowDown className="w-3.5 h-3.5 rotate-90" /> Back: Research</button>
+                                <button type="button" onClick={() => setDocumentView("resume")} disabled={documentView === "resume"} className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#2f8e85] transition-colors enabled:hover:text-slate-900 disabled:opacity-30">Next: Resume <Icons.arrowDown className="w-3.5 h-3.5 -rotate-90" /></button>
+                            </div>
+                        </article>
+                        </div>
+                    </motion.div>
                 </motion.div>
 
                 {/* Scroll indicator */}
@@ -290,7 +397,7 @@ export default function HomePage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2, duration: 0.8 }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                    className="absolute bottom-4 lg:bottom-6 left-1/2 -translate-x-1/2"
                 >
                     <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
                         <div className="w-5 h-8 rounded-full border border-dark-500 flex justify-center pt-1.5">

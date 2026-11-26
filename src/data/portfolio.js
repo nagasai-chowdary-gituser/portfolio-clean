@@ -8,14 +8,15 @@
  * ============================================
  */
 
-import resumePDF from "./Nagasai's_resume.pdf";
+import resumePDF from "./Nagasai_Resume_uptodate.pdf";
+import researchPaperFile from "./LLM_Research_paper.pdf";
 import madImage from "../assets/projects/mad.png";
 import jarvisImage from "../assets/projects/jarvis.png";
 
 export const personalInfo = {
-    name: "The Nagasai Chowdary",
+    name: "Jonnalagadda Nagasai",
     firstName: "Nagasai",
-    title: "AI Engineer & Full-Stack Developer",
+    title: "AI Engineer",
     tagline: "Building intelligent systems that transform ideas into production-grade solutions.",
     bio: "I'm a founder-level engineer specializing in AI/ML systems, full-stack development, and scalable architecture. I bridge the gap between cutting-edge research and production-ready products — from LLM-powered applications to real-time intelligent platforms.",
     resumeLink: resumePDF, // Auto-resolved resume path
@@ -24,11 +25,44 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/jonnalagadda-nagasai-2722a6315/",
     phone: "8688180266", // Optional
     company: {
-        role: "Founder & CEO",
+        role: "Managing Director",
         shortName: "RLCS",
         name: "RudrovaLabs Consultancy Services",
         url: "https://rudrovalabs.tech",
     },
+};
+
+export const experience = [
+    {
+        role: "Founder Profile",
+        company: "eChai Ventures",
+        companyName: "eChai Ventures Founder List",
+        description: "Find me on the eChai Ventures founder list, connecting founders and the startup ecosystem.",
+        url: "https://echai.ventures/founders/jonnalagadda-nagasai",
+        logo: "https://pbs.twimg.com/profile_images/1094856258354434048/11ABaiIF.jpg",
+    },
+    {
+        role: "Managing Director",
+        company: "RLCS",
+        companyName: "RudrovaLabs Consultancy Services",
+        description: "Leading strategy, delivery, and the development of technology solutions at RLCS.",
+        url: "https://rudrovalabs.tech",
+    },
+];
+
+export const researchPaper = {
+    label: "Featured Research · 2026",
+    title: "Do Emotional and Authoritative Prompts Influence Large Language Model Performance?",
+    subtitle: "An Empirical Study on Prompt Framing Effects",
+    description: "A controlled study of how neutral, commanding, and emotional-commanding prompts affect LLM output quality across mathematics, code generation, general knowledge, and analytical reasoning.",
+    finding: "Commanding prompts produced a large, statistically significant improvement in response completeness over neutral prompts.",
+    file: researchPaperFile,
+    fileName: "Nagasai_LLM_Research_Paper.pdf",
+    metrics: [
+        { value: "100", label: "Unique prompts" },
+        { value: "300", label: "Responses evaluated" },
+        { value: "d = 1.61", label: "Completeness effect" },
+    ],
 };
 
 export const aboutText = {

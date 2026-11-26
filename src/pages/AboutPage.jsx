@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { aboutText, skills, capabilities, personalInfo } from "../data/portfolio";
+import { aboutText, skills, capabilities, experience } from "../data/portfolio";
 import { Icons } from "../components/Icons";
 import SectionHeading from "../components/SectionHeading";
 import ScrollReveal from "../components/ScrollReveal";
@@ -112,6 +112,44 @@ export default function AboutPage() {
                                 <StatCard key={stat.label} label={stat.label} value={stat.value} delay={i * 0.08} />
                             ))}
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Experience ── */}
+            <div className="section-divider" />
+            <section className="section-padding">
+                <div className="max-w-6xl mx-auto px-6">
+                    <SectionHeading
+                        label="Experience"
+                        title="Professional Work"
+                        subtitle="Leadership and delivery experience alongside hands-on AI engineering."
+                    />
+                    <div className="grid gap-5 max-w-3xl mx-auto">
+                        {experience.map((item, index) => (
+                            <ScrollReveal key={`${item.role}-${item.company}`} delay={index * 0.08}>
+                                <div className="glass glass-hover rounded-2xl p-6 md:p-7">
+                                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                                        <div>
+                                            <p className="text-lg font-semibold text-dark-50">{item.role}</p>
+                                            {item.logo && (
+                                                <img src={item.logo} alt={`${item.company} logo`} className="mb-2 h-8 w-8 rounded-lg bg-white object-cover p-0.5" />
+                                            )}
+                                            <a
+                                                href={item.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-block mt-1 text-sm font-medium text-accent hover:text-neon-blue transition-colors"
+                                                title={item.companyName}
+                                            >
+                                                {item.company} <span className="text-dark-400">· {item.companyName}</span> ↗
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p className="mt-4 text-sm text-dark-300 leading-relaxed">{item.description}</p>
+                                </div>
+                            </ScrollReveal>
+                        ))}
                     </div>
                 </div>
             </section>

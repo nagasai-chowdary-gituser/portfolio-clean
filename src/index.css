@@ -89,7 +89,7 @@ body {
     radial-gradient(circle 500px at 75% 60%, rgba(90, 140, 200, 0.06), transparent 50%),
     radial-gradient(circle 400px at 50% 80%, rgba(155, 126, 200, 0.04), transparent 50%),
     radial-gradient(circle 500px at 20% 70%, rgba(31, 73, 89, 0.12), transparent 50%);
-  animation: mesh-drift 20s ease-in-out infinite;
+  animation: none;
 }
 
 .mesh-gradient-bg::after {
@@ -103,16 +103,16 @@ body {
     radial-gradient(circle 450px at 60% 30%, rgba(92, 124, 137, 0.10), transparent 50%),
     radial-gradient(circle 550px at 40% 75%, rgba(109, 191, 184, 0.05), transparent 50%),
     radial-gradient(circle 350px at 80% 80%, rgba(90, 140, 200, 0.06), transparent 50%);
-  animation: mesh-drift-reverse 25s ease-in-out infinite;
+  animation: none;
 }
 
 /* Floating gradient orbs */
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0;
-  animation: orb-float 12s ease-in-out infinite;
+  filter: blur(56px);
+  opacity: 0.35;
+  animation: none;
 }
 
 .gradient-orb-1 {
@@ -200,14 +200,14 @@ body {
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 75%);
-  animation: grid-shift 30s linear infinite;
+  animation: none;
 }
 
 /* ===== GLASSMORPHISM (DARK) ===== */
 .glass {
   background: rgba(17, 36, 48, 0.55);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.04);
 }
@@ -223,8 +223,8 @@ body {
 
 .glass-bright {
   background: rgba(17, 36, 48, 0.85);
-  backdrop-filter: blur(30px) saturate(1.6);
-  -webkit-backdrop-filter: blur(30px) saturate(1.6);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -712,8 +712,8 @@ body {
 /* ── Light glassmorphism ── */
 [data-theme="light"] .glass {
   background: rgba(245, 240, 232, 0.60);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04), inset 0 0 0 0.5px rgba(255, 252, 245, 0.9);
 }
@@ -725,8 +725,8 @@ body {
 
 [data-theme="light"] .glass-bright {
   background: rgba(245, 240, 232, 0.88);
-  backdrop-filter: blur(30px) saturate(1.3);
-  -webkit-backdrop-filter: blur(30px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 

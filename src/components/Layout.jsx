@@ -1,8 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "./Navbar";
 import Footer from "../sections/Footer";
-import StarfieldCanvas from "../components/StarfieldCanvas";
+import StarfieldCanvas from "./StarfieldCanvas";
 
 /**
  * Shared layout wrapper — Navbar + StarfieldCanvas + page content + Footer.

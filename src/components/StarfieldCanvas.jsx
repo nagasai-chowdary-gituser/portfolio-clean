@@ -18,13 +18,23 @@ export default function StarfieldCanvas() {
 
         let animFrameId;
         let mouse = { x: -1000, y: -1000 };
-        const STAR_COUNT = isDark ? 140 : 100;
-        const CONNECTION_DIST = isDark ? 160 : 140;
-        const MOUSE_RADIUS = 250;
+        // Keep the decorative canvas cheap enough to scroll smoothly on laptops and phones.
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        const STAR_COUNT = isMobile ? 32 : 64;
+        const CONNECTION_DIST = isMobile ? 105 : 130;
+        const CONNECTION_DIST_SQUARED = CONNECTION_DIST * CONNECTION_DIST;
+        const MOUSE_RADIUS = isMobile ? 150 : 190;
+        const FRAME_INTERVAL = 1000 / 30;
+        let lastFrameTime = 0;
+        let isPageVisible = !document.hidden;
 
         const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+            canvas.width = Math.floor(window.innerWidth * pixelRatio);
+            canvas.height = Math.floor(window.innerHeight * pixelRatio);
+            canvas.style.width = `${window.innerWidth}px`;
+            canvas.style.height = `${window.innerHeight}px`;
+            ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
         };
         resize();
         window.addEventListener("resize", resize);
@@ -112,6 +122,10 @@ export default function StarfieldCanvas() {
         const stars = Array.from({ length: STAR_COUNT }, () => new Star());
 
         const render = (t) => {
+            animFrameId = requestAnimationFrame(render);
+            if (!isPageVisible || t - lastFrameTime < FRAME_INTERVAL) return;
+            lastFrameTime = t;
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             for (const star of stars) star.update(t);
@@ -121,8 +135,9 @@ export default function StarfieldCanvas() {
                 for (let j = i + 1; j < stars.length; j++) {
                     const dx = stars[i].x - stars[j].x;
                     const dy = stars[i].y - stars[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < CONNECTION_DIST) {
+                    const distanceSquared = dx * dx + dy * dy;
+                    if (distanceSquared < CONNECTION_DIST_SQUARED) {
+                        const dist = Math.sqrt(distanceSquared);
                         const alpha = (1 - dist / CONNECTION_DIST) * connectionAlphaFactor;
                         const colIdx = (i + j) % connectionColors.length;
                         const [r, g, b] = connectionColors[colIdx];
@@ -164,14 +179,15 @@ export default function StarfieldCanvas() {
 
             for (const star of stars) star.draw(ctx);
 
-            animFrameId = requestAnimationFrame(render);
         };
 
         const handleMouseMove = (e) => { mouse.x = e.clientX; mouse.y = e.clientY; };
         const handleMouseLeave = () => { mouse.x = -1000; mouse.y = -1000; };
+        const handleVisibilityChange = () => { isPageVisible = !document.hidden; };
 
-        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove, { passive: true });
         window.addEventListener("mouseleave", handleMouseLeave);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
         animFrameId = requestAnimationFrame(render);
 
         return () => {
@@ -179,6 +195,7 @@ export default function StarfieldCanvas() {
             window.removeEventListener("resize", resize);
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseleave", handleMouseLeave);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
     }, [theme]);
 
