@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-pi-henna-75.vercel.app/sitemap.xml

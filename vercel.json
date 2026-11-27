@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.portfolio-pi-henna-75.vercel.app" }
+      ],
+      "destination": "https://portfolio-pi-henna-75.vercel.app/:path*",
+      "permanent": true
+    }
+  ]
+}

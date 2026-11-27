@@ -341,6 +341,12 @@ export default function HomePage() {
                             </a>
                         ))}
                     </motion.div>
+                    <motion.div variants={itemVariants} className="mt-4 flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-2 text-xs text-dark-400">
+                        <a href={personalInfo.linkedin} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Jonnalagadda Nagasai Chowdary on LinkedIn</a>
+                        <a href={personalInfo.eChai} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">eChai Ventures founder profile</a>
+                        <a href={personalInfo.github} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">GitHub</a>
+                        <a href={personalInfo.company.url} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Rudrova Labs</a>
+                    </motion.div>
                     </div>
 
                     <motion.div
@@ -377,7 +383,7 @@ export default function HomePage() {
                                 <>
                                     <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-[#2f8e85]">Résumé</p>
                                     <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">{personalInfo.name}</h2>
-                                    <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-600">AI Engineer · Managing Director, RLCS</p>
+                                    <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-600">AI Engineer · Managing Director, Rudrova Labs</p>
                                     <div className="mt-7 border-l-2 border-[#2f8e85] pl-4 text-sm leading-relaxed text-slate-700"><span className="font-bold text-slate-900">Focus: </span>Production AI systems, LLM-powered products, and scalable full-stack engineering.</div>
                                     <div className="mt-8 grid grid-cols-3 gap-2 border-t border-slate-200 pt-5">{["AI / ML", "LLM Apps", "Full Stack"].map((focus, index) => <div key={focus}><p className="text-lg font-extrabold text-[#2f8e85]">0{index + 1}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-slate-500">{focus}</p></div>)}</div>
                                     <a href={personalInfo.resumeLink} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#2f8e85] hover:text-slate-900">View full résumé <Icons.externalLink className="w-3.5 h-3.5" /></a>

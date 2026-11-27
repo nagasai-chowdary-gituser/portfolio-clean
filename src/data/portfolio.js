@@ -14,21 +14,25 @@ import madImage from "../assets/projects/mad.png";
 import jarvisImage from "../assets/projects/jarvis.png";
 
 export const personalInfo = {
-    name: "Jonnalagadda Nagasai",
-    firstName: "Nagasai",
-    title: "AI Engineer",
-    tagline: "Building intelligent systems that transform ideas into production-grade solutions.",
+    name: "Jonnalagadda Nagasai Chowdary",
+    firstName: "Nagasai Chowdary",
+    title: "AI Engineer · AI Product Developer",
+    tagline: "Jonnalagadda Nagasai Chowdary, known professionally as Nagasai Chowdary, builds AI agents, voice agents, and SaaS products from Tamil Nadu, India.",
     bio: "I'm a founder-level engineer specializing in AI/ML systems, full-stack development, and scalable architecture. I bridge the gap between cutting-edge research and production-ready products — from LLM-powered applications to real-time intelligent platforms.",
     resumeLink: resumePDF, // Auto-resolved resume path
     email: "jonnalagaddanagasai6@gmail.com",
     github: "https://github.com/nagasai-chowdary-gituser",
     linkedin: "https://www.linkedin.com/in/jonnalagadda-nagasai-2722a6315/",
     phone: "8688180266", // Optional
+    location: "Tamil Nadu, India",
+    website: "https://portfolio-pi-henna-75.vercel.app/",
+    eChai: "https://echai.ventures/founders/jonnalagadda-nagasai",
+    founderPage: "https://www.rudrovalabs.tech/team/jonnalagadda-nagasai-chowdary",
     company: {
         role: "Managing Director",
-        shortName: "RLCS",
-        name: "RudrovaLabs Consultancy Services",
-        url: "https://rudrovalabs.tech",
+        shortName: "Rudrova Labs",
+        name: "Rudrova Labs",
+        url: "https://www.rudrovalabs.tech",
     },
 };
 
@@ -43,10 +47,10 @@ export const experience = [
     },
     {
         role: "Managing Director",
-        company: "RLCS",
-        companyName: "RudrovaLabs Consultancy Services",
-        description: "Leading strategy, delivery, and the development of technology solutions at RLCS.",
-        url: "https://rudrovalabs.tech",
+        company: "Rudrova Labs",
+        companyName: "Rudrova Labs",
+        description: "Managing AI product delivery and the development of technology solutions at Rudrova Labs.",
+        url: "https://www.rudrovalabs.tech",
     },
     {
         role: "AI Engineer Researcher",

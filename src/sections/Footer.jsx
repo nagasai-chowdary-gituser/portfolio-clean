@@ -44,6 +44,12 @@ export default function Footer() {
 
                 {/* Divider */}
                 <div className="mt-8 pt-6 border-t border-border">
+                    <nav aria-label="Professional profiles" className="mb-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-dark-400">
+                        <a href={personalInfo.linkedin} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Jonnalagadda Nagasai Chowdary on LinkedIn</a>
+                        <a href={personalInfo.eChai} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">eChai Ventures founder profile</a>
+                        <a href={personalInfo.github} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Jonnalagadda Nagasai Chowdary on GitHub</a>
+                        <a href={personalInfo.company.url} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Rudrova Labs</a>
+                    </nav>
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                         <p className="text-xs text-dark-400">
                             © {currentYear} {personalInfo.name}. All rights reserved.
