@@ -280,7 +280,7 @@ export default function HomePage() {
                     </motion.h1>
 
                     {/* Primary role */}
-                    <motion.div variants={itemVariants} className="mt-4 flex justify-center">
+                    <motion.div variants={itemVariants} className="mt-4 flex justify-center lg:justify-start">
                         <span className="rounded-md bg-accent px-3 py-1 text-xl font-extrabold tracking-tight text-dark-950 shadow-[0_4px_16px_rgba(109,191,184,0.28)] md:text-2xl">
                             {personalInfo.title}
                         </span>
