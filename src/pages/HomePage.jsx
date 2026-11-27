@@ -274,8 +274,9 @@ export default function HomePage() {
                     </motion.div>
 
                     {/* Name — clean white with subtle glow */}
-                    <motion.h1 variants={itemVariants} className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight hero-name">
-                        {personalInfo.name}
+                    <motion.h1 variants={itemVariants} className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-4xl 2xl:text-5xl font-extrabold leading-[1.08] tracking-tight hero-name">
+                        <span className="block lg:whitespace-nowrap">Jonnalagadda</span>
+                        <span className="block lg:whitespace-nowrap">Nagasai Chowdary</span>
                     </motion.h1>
 
                     {/* Primary role */}
