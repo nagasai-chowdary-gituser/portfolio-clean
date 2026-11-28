@@ -1,0 +1,20 @@
+/** Search identity constants. Update this file when moving to a custom domain. */
+export const site = {
+    url: "https://portfolio-pi-henna-75.vercel.app/",
+    publicName: "Jonnalagadda Nagasai",
+    knownAs: "Nagasai Chowdary",
+    alternateNames: ["Nagasai Chowdary", "Jonnalagadda Nagasai Durga Prasanth", "J. Nagasai", "Nagasai"],
+    roles: ["AI Engineer", "AI Product Developer", "Founder and Managing Director"],
+    agency: "Rudrova Labs Consultancy Services",
+    agencyAbbreviation: "RLCS",
+    agencyUrl: "https://www.rudrovalabs.tech",
+    agencyFounderUrl: "https://www.rudrovalabs.tech/team/jonnalagadda-nagasai",
+    education: "SIMATS Engineering, Saveetha Institute of Medical and Technical Sciences",
+    educationDescription: "B.Tech (3rd year), SIMATS Engineering (Saveetha Institute of Medical and Technical Sciences), Chennai",
+    location: "Chennai, Tamil Nadu, India",
+    image: "https://portfolio-pi-henna-75.vercel.app/og-jonnalagadda-nagasai-chowdary.jpg",
+    linkedin: "https://www.linkedin.com/in/jonnalagadda-nagasai-2722a6315/",
+    eChai: "https://echai.ventures/founders/jonnalagadda-nagasai",
+    instagram: "https://instagram.com/nagasai_chowdary_07",
+    github: "https://github.com/nagasai-chowdary-gituser",
+};

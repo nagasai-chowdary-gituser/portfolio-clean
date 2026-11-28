@@ -34,6 +34,8 @@ export default function ProjectCard({ project, index }) {
                             src={project.image}
                             alt={`${project.name} interface`}
                             loading="lazy"
+                            width="1280"
+                            height="720"
                             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                     </div>

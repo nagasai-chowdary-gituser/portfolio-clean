@@ -31,9 +31,10 @@ export default function Footer() {
                                     key={link.name}
                                     href={link.url}
                                     target={link.icon !== "email" ? "_blank" : undefined}
-                                    rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
+                                    rel={link.icon !== "email" ? "me noopener noreferrer" : undefined}
                                     className="p-2.5 rounded-xl text-dark-400 hover:text-accent glass glass-hover transition-all duration-300"
-                                    aria-label={link.name}
+                                    aria-label={`Jonnalagadda Nagasai on ${link.name}`}
+                                    title={`Jonnalagadda Nagasai on ${link.name}`}
                                 >
                                     {IconComponent && <IconComponent className="w-4 h-4" />}
                                 </a>
@@ -45,10 +46,10 @@ export default function Footer() {
                 {/* Divider */}
                 <div className="mt-8 pt-6 border-t border-border">
                     <nav aria-label="Professional profiles" className="mb-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-dark-400">
-                        <a href={personalInfo.linkedin} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Jonnalagadda Nagasai Chowdary on LinkedIn</a>
+                        <a href={personalInfo.linkedin} target="_blank" rel="me noopener noreferrer" title="Jonnalagadda Nagasai on LinkedIn" className="hover:text-accent transition-colors">Jonnalagadda Nagasai on LinkedIn</a>
                         <a href={personalInfo.eChai} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">eChai Ventures founder profile</a>
-                        <a href={personalInfo.github} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Jonnalagadda Nagasai Chowdary on GitHub</a>
-                        <a href={personalInfo.company.url} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Rudrova Labs</a>
+                        <a href={personalInfo.github} target="_blank" rel="me noopener noreferrer" title="Jonnalagadda Nagasai on GitHub" className="hover:text-accent transition-colors">Jonnalagadda Nagasai on GitHub</a>
+                        <a href={personalInfo.company.url} target="_blank" rel="me noopener noreferrer" title="Rudrova Labs Consultancy Services" className="hover:text-accent transition-colors">Rudrova Labs Consultancy Services (RLCS)</a>
                     </nav>
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                         <p className="text-xs text-dark-400">

@@ -12,27 +12,28 @@ import resumePDF from "./Nagasai_Resume_uptodate.pdf";
 import researchPaperFile from "./LLM_Research_paper.pdf";
 import madImage from "../assets/projects/mad.png";
 import jarvisImage from "../assets/projects/jarvis.png";
+import { site } from "./site";
 
 export const personalInfo = {
-    name: "Jonnalagadda Nagasai Chowdary",
-    firstName: "Nagasai Chowdary",
+    name: site.publicName,
+    firstName: "Nagasai",
     title: "AI Engineer · AI Product Developer",
-    tagline: "Jonnalagadda Nagasai Chowdary, known professionally as Nagasai Chowdary, builds AI agents, voice agents, and SaaS products from Tamil Nadu, India.",
+    tagline: "Jonnalagadda Nagasai, also known as Nagasai Chowdary, is an AI engineer and AI product developer in Chennai, India, building AI agents, voice agents, and SaaS products.",
     bio: "I'm a founder-level engineer specializing in AI/ML systems, full-stack development, and scalable architecture. I bridge the gap between cutting-edge research and production-ready products — from LLM-powered applications to real-time intelligent platforms.",
     resumeLink: resumePDF, // Auto-resolved resume path
     email: "jonnalagaddanagasai6@gmail.com",
-    github: "https://github.com/nagasai-chowdary-gituser",
-    linkedin: "https://www.linkedin.com/in/jonnalagadda-nagasai-2722a6315/",
+    github: site.github,
+    linkedin: site.linkedin,
     phone: "8688180266", // Optional
-    location: "Tamil Nadu, India",
-    website: "https://portfolio-pi-henna-75.vercel.app/",
-    eChai: "https://echai.ventures/founders/jonnalagadda-nagasai",
-    founderPage: "https://www.rudrovalabs.tech/team/jonnalagadda-nagasai-chowdary",
+    location: site.location,
+    website: site.url,
+    eChai: site.eChai,
+    founderPage: site.agencyFounderUrl,
     company: {
-        role: "Managing Director",
-        shortName: "Rudrova Labs",
-        name: "Rudrova Labs",
-        url: "https://www.rudrovalabs.tech",
+        role: "Founder and Managing Director",
+        shortName: `${site.agency} (${site.agencyAbbreviation})`,
+        name: `${site.agency} (${site.agencyAbbreviation})`,
+        url: site.agencyUrl,
     },
 };
 
@@ -47,10 +48,10 @@ export const experience = [
     },
     {
         role: "Managing Director",
-        company: "Rudrova Labs",
-        companyName: "Rudrova Labs",
-        description: "Managing AI product delivery and the development of technology solutions at Rudrova Labs.",
-        url: "https://www.rudrovalabs.tech",
+        company: `${site.agency} (${site.agencyAbbreviation})`,
+        companyName: `${site.agency} (${site.agencyAbbreviation})`,
+        description: `Managing AI product delivery and the development of technology solutions at ${site.agency} (${site.agencyAbbreviation}).`,
+        url: site.agencyUrl,
     },
     {
         role: "AI Engineer Researcher",

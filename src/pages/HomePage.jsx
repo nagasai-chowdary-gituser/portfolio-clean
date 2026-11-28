@@ -247,7 +247,7 @@ export default function HomePage() {
                         <div className="relative w-60 h-[19rem] xl:w-68 xl:h-[22rem] rounded-3xl border border-accent/35 bg-accent-dim p-1.5 shadow-[0_18px_55px_rgba(0,0,0,0.35)]">
                             <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-neon-cyan/25 via-transparent to-neon-blue/20" aria-hidden="true" />
                             <div className="relative h-full overflow-hidden rounded-[1.35rem] border border-white/10">
-                                <img src={profilePhoto} alt={personalInfo.name} className="w-full h-full object-cover object-center" />
+                                <img src={profilePhoto} alt="Jonnalagadda Nagasai, AI Engineer and Founder of Rudrova Labs" width="272" height="352" className="w-full h-full object-cover object-center" />
                             </div>
                         </div>
                     </motion.div>
@@ -268,7 +268,7 @@ export default function HomePage() {
                     <motion.div variants={itemVariants} className="mt-8 flex justify-center lg:hidden">
                         <div className="photo-ring">
                             <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden z-10">
-                                <img src={profilePhoto} alt={personalInfo.name} className="w-full h-full object-cover" />
+                                <img src={profilePhoto} alt="Jonnalagadda Nagasai, AI Engineer and Founder of Rudrova Labs" width="208" height="208" className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </motion.div>
@@ -276,7 +276,7 @@ export default function HomePage() {
                     {/* Name — clean white with subtle glow */}
                     <motion.h1 variants={itemVariants} className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-4xl 2xl:text-5xl font-extrabold leading-[1.08] tracking-tight hero-name">
                         <span className="block lg:whitespace-nowrap">Jonnalagadda</span>
-                        <span className="block lg:whitespace-nowrap">Nagasai Chowdary</span>
+                        <span className="block lg:whitespace-nowrap">Nagasai</span>
                     </motion.h1>
 
                     {/* Primary role */}
@@ -334,19 +334,20 @@ export default function HomePage() {
                         ].map(({ href, icon: Icon, label }) => (
                             <a key={label} href={href}
                                 target={label !== "Email" ? "_blank" : undefined}
-                                rel={label !== "Email" ? "noopener noreferrer" : undefined}
+                                rel={label !== "Email" ? "me noopener noreferrer" : undefined}
                                 className="p-3 rounded-xl text-dark-400 hover:text-accent glass glass-hover transition-all duration-300"
-                                aria-label={label}
+                                aria-label={`Jonnalagadda Nagasai on ${label}`}
+                                title={`Jonnalagadda Nagasai on ${label}`}
                             >
                                 <Icon className="w-5 h-5" />
                             </a>
                         ))}
                     </motion.div>
                     <motion.div variants={itemVariants} className="mt-4 flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-2 text-xs text-dark-400">
-                        <a href={personalInfo.linkedin} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Jonnalagadda Nagasai Chowdary on LinkedIn</a>
+                        <a href={personalInfo.linkedin} target="_blank" rel="me noopener noreferrer" title="Jonnalagadda Nagasai on LinkedIn" className="hover:text-accent transition-colors">Jonnalagadda Nagasai on LinkedIn</a>
                         <a href={personalInfo.eChai} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">eChai Ventures founder profile</a>
-                        <a href={personalInfo.github} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">GitHub</a>
-                        <a href={personalInfo.company.url} target="_blank" rel="me noopener noreferrer" className="hover:text-accent transition-colors">Rudrova Labs</a>
+                        <a href={personalInfo.github} target="_blank" rel="me noopener noreferrer" title="Jonnalagadda Nagasai on GitHub" className="hover:text-accent transition-colors">GitHub</a>
+                        <a href={personalInfo.company.url} target="_blank" rel="me noopener noreferrer" title="Rudrova Labs Consultancy Services" className="hover:text-accent transition-colors">Rudrova Labs Consultancy Services (RLCS)</a>
                     </motion.div>
                     </div>
 
@@ -384,7 +385,7 @@ export default function HomePage() {
                                 <>
                                     <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-[#2f8e85]">Résumé</p>
                                     <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">{personalInfo.name}</h2>
-                                    <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-600">AI Engineer · Managing Director, Rudrova Labs</p>
+                                    <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-600">AI Engineer · Founder and Managing Director, Rudrova Labs Consultancy Services (RLCS)</p>
                                     <div className="mt-7 border-l-2 border-[#2f8e85] pl-4 text-sm leading-relaxed text-slate-700"><span className="font-bold text-slate-900">Focus: </span>Production AI systems, LLM-powered products, and scalable full-stack engineering.</div>
                                     <div className="mt-8 grid grid-cols-3 gap-2 border-t border-slate-200 pt-5">{["AI / ML", "LLM Apps", "Full Stack"].map((focus, index) => <div key={focus}><p className="text-lg font-extrabold text-[#2f8e85]">0{index + 1}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-slate-500">{focus}</p></div>)}</div>
                                     <a href={personalInfo.resumeLink} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#2f8e85] hover:text-slate-900">View full résumé <Icons.externalLink className="w-3.5 h-3.5" /></a>
